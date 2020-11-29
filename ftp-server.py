@@ -15,12 +15,14 @@ authorizer.add_anonymous(os.getcwd())
  # Instantiate FTP handler clas
 handler = FTPHandler
 handler.authorizer = authorizer
+FTPHandler.permit_foreign_addresses = True
 
 # Define a customized banner (string returned when client connects)
 handler.banner = "FTP server ready"
 
 # Instantiate FTP server class and listen on the given IP address and port
-address = ("127.0.0.1", 1026)
+PRIVATE_IP = "192.168.0.121"
+address = (PRIVATE_IP, 1026)
 server = FTPServer(address, handler)
 
 # set a limit for connections and start the FTP server
