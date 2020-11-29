@@ -1,9 +1,11 @@
 # import FP class, which implements client side of FTP
 from ftplib import FTP
 
+IP = '67.48.137.212'
+
 # connect to server and login
 ftp = FTP('')
-ftp.connect('localhost', 1026)              # connect to host, port
+ftp.connect(IP, 1026)                       # connect to host, port
 #ftp.login()                                # login (anonymous)
 ftp.login(user='hacker', passwd='12345')    # login with full access
 ftp.cwd('books')                            # change working directory
@@ -23,5 +25,5 @@ def downloadFile():
     localfile.close()
 
 # Un-comment the function you'd like to execute
-uploadFile()
-#downloadFile()
+#uploadFile()
+downloadFile()
